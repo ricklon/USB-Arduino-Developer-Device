@@ -11,28 +11,58 @@ Git Controls using custom buttons as Keyboard output
  button code, and keboard code insired from Tom Igoes KeyBoard Message exmaple
  KeyboardMessage.ino
  
+ Pin Mapping without custom variant, using leonardo variant
+x0 PD2 - digital 0 / serial RX
+x1 PD3 - digital 1 / serial TX
+
+1=11 PB7 - digital 11
+0=10 PB6 - digital 10
+2=2 PD1 - digital 2
+3=3 PD0 - digital 3
+4 PD4 - digital 4 / A6
+5 PC6 - digital 5
+6 PD7 - digital 6
+8 PB4 - digital 8
+9 PB5 - digital 9
+
+
+Status LED
+13 PC7 - digital 13
+ 
  */
 
-#define GITREPO  https://github.com/ricklon/USB-Arduino-Developer-Device
-#define ABSDIRECTORY /Users/rianders/projects/USB-Arduino-Developer-Device
-#define NUMBUTTONS 10
+
+
+#define NUMBUTTONS 9
+
+char gitrepo[] = " https://github.com/ricklon/USB-Arduino-Developer-Device";
+char absdirectory[] =  "/Users/rianders/projects/USB-Arduino-Developer-Device";
 
 long previousMillis = 0;        // will store last time millis was updated
-long interval = 15;           // interval at which to debounce (milliseconds)
+long interval = 65;           // interval at which to debounce (milliseconds)
 
 const int buttonPins[] = { 
-  26,27,28,29,30,31,32,33,34,35};
+  10,11,2,3,4,5,6,8,9};
 
 int previousButtonState[NUMBUTTONS] ={
-  0,0,0,0,0,0,0,0,0,0};
+  1,1,1,1,1,1,1,1,1};
+
+const int statLedPin = 13;
 
 void setup() 
 {
-
+  Serial.begin(9600);
+  //Configure buttons
   for(int ii = 0; ii < NUMBUTTONS; ii++) //Init digital pins for INPUT
   {
     pinMode(buttonPins[ii], INPUT);     
   }
+  //configure status LED
+  pinMode(statLedPin, OUTPUT);
+  //diagnostic blink
+  digitalWrite(statLedPin, HIGH);
+  delay(250);
+  digitalWrite(statLedPin, LOW);
 }
 
 void loop() 
@@ -42,15 +72,19 @@ void loop()
   {
     for(int ii = 0; ii < NUMBUTTONS; ii++) //Read button state
     {
-      int buttonState = digitalRead(buttonPins[ii]);    
+      int buttonState = digitalRead(buttonPins[ii]); 
+      Serial.print("Buton[");
+      Serial.print(ii);
+      Serial.print("] ");
+      Serial.println(buttonState);
+       //Light stat LED while button pressed   
+       digitalWrite(statLedPin, buttonState);
       if ((buttonState != previousButtonState[ii])  && (buttonState == HIGH))   // and it's currently pressed:
       {
         doAction(ii);
       }
       previousButtonState[ii] = buttonState;
     }
-
-
   }
 }
 
@@ -60,19 +94,20 @@ void doAction(int button)
   {
   case 0: //Clone repository
     Keyboard.print("git clone ");
-    Keyboard.print("GITREPO");
+    Keyboard.println(gitrepo);
     break;
-  case 1: //Fetch changes
+  case 1: //Change to projcet directory
+    Keyboard.print("cd ");
+    Keyboard.println(absdirectory);
+    break;
+  case 2: //Fetch changes
     Keyboard.println("git fetch");
     break;
-  case 2: //Check status
+  case 3: //Check status
     Keyboard.println("git diff --stat origin/master");
     break;
-  case 3: //check differences summary
-    Keyboard.println("git diff --name-only origin/master");
-    break;
   case 4: //Get the changes
-    Keyboard.println("");
+    Keyboard.println("git merge");
     break;
   case 5:  //List branches
     Keyboard.println("git branches");
@@ -86,11 +121,6 @@ void doAction(int button)
   case 8: //Push changes
     Keyboard.println("git push");
     break;
-  case 9: //Change to projcet directory
-    Keyboard.print("cd");
-    Keyboard.println("ABSDIRECTORY");
-    break;
-
 
   }
 }
