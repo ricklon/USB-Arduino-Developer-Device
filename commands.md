@@ -10,21 +10,21 @@ Go to project
 get changes
 ------------
 
-check for new changes
+Find New
 ----------------------
 
-merge changes
+Merge New
 --------------
 
-show branches
+Show Branches
 --------------
 
-diff
+Diff
 ----
 
-commit
+Commit
 -------
 
-push
+Push
 -----
 
