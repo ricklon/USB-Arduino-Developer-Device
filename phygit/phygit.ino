@@ -14,15 +14,16 @@ Git Controls using custom buttons as Keyboard output
  */
 
 #define gitrepo = https://github.com/ricklon/USB-Arduino-Developer-Device
-#define NUMBUTTONS 8
+#define NUMBUTTONS 9
 
 long previousMillis = 0;        // will store last time millis was updated
 long interval = 15;           // interval at which to debounce (milliseconds)
 
 const int buttonPins[] = { 
-  26,27,28,29,30,31,32,33};
+  26,27,28,29,30,31,32,33,34};
 
-int previousButtonState[NUMBUTONS];
+int previousButtonState[NUMBUTTONS] ={
+  0,0,0,0,0,0,0,0,0};
 
 void setup() 
 {
@@ -41,7 +42,7 @@ void loop()
     for(int ii = 0; ii < NUMBUTTONS; ii++) //Read button state
     {
       int buttonState = digitalRead(buttonPins[ii]);    
-      if ((buttonState != previousButtonState)  && (buttonState == HIGH))   // and it's currently pressed:
+      if ((buttonState != previousButtonState[ii])  && (buttonState == HIGH))   // and it's currently pressed:
       {
         doAction(ii);
       }
@@ -56,27 +57,30 @@ void doAction(int button)
 {
   switch(button)
   {
-  case 0:
+  case 0: //Clone repository
     break;
-  case 1:
+  case 1: //Fetch changes
     break;
-  case 2:
+  case 2: //Check status
     break;
-  case 3:
+  case 3: //check differences
     break;
-  case 4:
+  case 4: //Get the changes
     break;
-  case 5:
+  case 5:  //List branches
     break;
-  case 6:
+  case 6: //Check differences
     break;
-  case 7:
+  case 7: //Commit changes
+    break;
+  case 8: //Push changes
     break;
 
-  default:
+
 
   }
 }
+
 
 
 
