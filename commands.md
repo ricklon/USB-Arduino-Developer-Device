@@ -7,7 +7,7 @@ Clone Repo
 Go to project
 -------------
 
-get changes
+Fetch Changes
 ------------
 
 Find New

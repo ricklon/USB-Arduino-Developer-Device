@@ -101,16 +101,16 @@ void doAction(int button)
     Keyboard.println(absdirectory);
     break;
   case 2: //Fetch changes
-    Keyboard.println("git fetch");
+    Keyboard.println("git fetch origin");
     break;
   case 3: //Check status
     Keyboard.println("git diff --stat origin/master");
     break;
   case 4: //Get the changes
-    Keyboard.println("git merge");
+    Keyboard.println("git merge origin/master");
     break;
   case 5:  //List branches
-    Keyboard.println("git branches");
+    Keyboard.println("git branch");
     break;
   case 6: //Check differences
     Keyboard.println("git diff");
