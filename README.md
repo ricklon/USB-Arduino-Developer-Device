@@ -5,7 +5,7 @@ The project provides a device that allows for a user configuratble Git hub repos
 switche, and many other I/O electronics. This is very similar to the alias process in Unix.
 
 You'll be able to press:
-0.    button: Clone reposity
+1.    button: Clone reposity
 1.    button: Goto Project
 2.    button: Get Changes
 3.    button: Find New
