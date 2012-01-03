@@ -4,9 +4,10 @@ USB Arduino based Developer Device
 The project provides a device that allows for a user configuratble Git hub repositoy to be interacted with via a series buttons, 
 switche, and many other I/O electronics. This is very similar to the alias process in Unix.
 
-You'll be able to press:
-1.    button: Clone reposity
-1.    button: Goto Project
+You'll be able to press buttons:
+
+1.  Clone reposity
+1.  Goto Project
 2.    button: Get Changes
 3.    button: Find New
 4.    button: Merge New
