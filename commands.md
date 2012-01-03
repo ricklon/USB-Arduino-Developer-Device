@@ -4,7 +4,7 @@ Commands
 Clone Repo
 ----------
 
-Go to project
+Goto Project
 -------------
 
 Fetch Changes
