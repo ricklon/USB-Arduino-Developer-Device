@@ -5,15 +5,15 @@ The project provides a device that allows for a user configuratble Git hub repos
 switche, and many other I/O electronics. This is very similar to the alias process in Unix.
 
 You'll be able to press:
-0. button: Clone reposity
-1. button: Goto Project
-2. button: Get Changes
-3. button: Find New
-4. button: Merge New
-5. button: Show Branches
-6. button: Diff
-7. button: Commit
-8. button: Push
+0.    button: Clone reposity
+1.    button: Goto Project
+2.    button: Get Changes
+3.    button: Find New
+4.    button: Merge New
+5.    button: Show Branches
+6.    button: Diff
+7.    button: Commit
+8.    button: Push
 
 In the future yes/no, and enter buttons could be added. Lot's of fun options.
 
