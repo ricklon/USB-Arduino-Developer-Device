@@ -8,23 +8,27 @@ You'll be able to press buttons:
 
 1.  Clone reposity
 1.  Goto Project
-2.    button: Get Changes
-3.    button: Find New
-4.    button: Merge New
-5.    button: Show Branches
-6.    button: Diff
-7.    button: Commit
-8.    button: Push
+2.  Get Changes
+3.  Find New
+4.  Merge New
+5.  Show Branches
+6.  Diff
+7.  Commit
+8.  Push
 
 In the future yes/no, and enter buttons could be added. Lot's of fun options.
 
 
-In this example we'll use buttons. In the Arduino sketch please specify the Git repositoy you want.#
+In this example we'll use buttons. In the Arduino sketch please specify the Git repositoy you want Also, the absolute path to your 
+project directory.
 
 Requirements:
+
 You need Git
+
 Arduino 1.0 with Leonardo support enabled.
-A ATMEga32u4 breakout board, Teensy, or Arduino Leonardo with the Leonardo bootloader on it.
+
+An ATMEga32u4 breakout board, Teensy, or Arduino Leonardo with the Leonardo bootloader on it.
 
 
 
